@@ -2004,8 +2004,8 @@ PasteButton = LayoutTab:CreateButton({
 --// Discord Webhook
 -------------------------//
 local webhookTab = Window:CreateTab("Webhook")
-local WebhookEnabled = true
-local WebhookURL = "https://discord.com/api/webhooks/1129800803851456613/W5WI63x0pATnI8Uwi_WxsAGBGL-Vz_CfqWg6_xsLuh6KqJJnQJXH3FZwWqh3cwkzzNi2"
+local WebhookEnabled = false
+local WebhookURL = ""
 local WebhookUpdateTime = 10
 local WebhookLastTime = tick()
 local AlreadyCompletedChefCat = false

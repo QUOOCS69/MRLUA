@@ -2015,9 +2015,6 @@ function SendWebhook(skipError, receivedStats)
 	if not stats then WebhookTryAgain(skipError) return end
 	local statsString = ""
 	
-	if stats.ChefCatProgress then
-		statsString = statsString .. string.format("**Chef Cat Progress:** %s/100,000\n", Library.Functions.Commas(stats.ChefCatProgress))
-	end
 
 	if stats.TimeSpentInGame then
 		local timeSpentInGame = stats.TimeSpentInGame

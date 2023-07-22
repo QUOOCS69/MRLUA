@@ -1267,7 +1267,7 @@ FarmTab:CreateToggle({
    end
 })
 
-local SettingsSection = FarmTab:CreateSection("NPCs Options")
+local SettingsSection = FarmTab:CreateSection("NPCs Options (DON'T USE THAT THE SCRIPT WILL BREAK)")
 local TeleportNPCToggle = FarmTab:CreateToggle({
    Name = "NPC Teleport",
    CurrentValue = false,

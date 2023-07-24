@@ -1158,7 +1158,7 @@ local HyperFoodToggle = FarmTab:CreateToggle({
    end
 })
 
-FarmTab:CreateParagraph({ Title="Force Best Customer", Content = "This option will force the best customer for each chair like:\nBeach chair is Lifeguard, Alien Throne is Alien, [...]\nThis is extremely efficient with Alien ($936k per Alien with HyperFood)"})
+FarmTab:CreateParagraph({ Title="Force Best Customer", Content = "This option will force the best customer for each chair like:\nBeach chair is Lifeguard, Alien Throne is Alien, [...]\nThis is extremely efficient with Alien ($936k per Alien)"})
 local ForceCustomerToggle = FarmTab:CreateToggle({
    Name = "Force Best Customer",
    CurrentValue = true,
@@ -2254,3 +2254,15 @@ VirtualUser:ClickButton2(Vector2.new())
 end)
 
 warn("Anti-Afk has Loaded")
+-------------------------//
+--// CPU-SAVER
+-------------------------//
+local UserInputService, RunService = game:GetService("UserInputService"), game:GetService("RunService")
+
+UserInputService.WindowFocusReleased:Connect(function()
+	RunService:Set3dRenderingEnabled(false);
+end)
+
+UserInputService.WindowFocused:Connect(function()
+	RunService:Set3dRenderingEnabled(true);
+end)

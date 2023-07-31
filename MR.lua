@@ -1069,7 +1069,7 @@ assert(Rayfield, "Oopps! Rayfield has not been loaded. Maybe try re-joining?")
 
 --// GET OUT OF HERE YOUR FVCKING LOSER, DON'T RENAME MY SCRIPT, YOU DON'T EVEN KNOW HOW TO PRINT HELLO WORLD YOUR FVCKING ASSHOLE
 local Window = Rayfield:CreateWindow({
-   Name = "My Restaurant! | Script by Rafa (discord.gg/MilkUp)",
+   Name = "SCRIPT BY RAFA | REWRITE BY QUOOCS",
    LoadingTitle = "My Restaurant!",
    LoadingSubtitle = "by Rafa (discord.gg/MilkUp)",
    ConfigurationSaving = {
@@ -1158,7 +1158,7 @@ local HyperFoodToggle = FarmTab:CreateToggle({
    end
 })
 
-FarmTab:CreateParagraph({ Title="Force Best Customer", Content = "This option will force the best customer for each table like:\nBeach table is Lifeguard, UFO table is Alien, [...]\nThis is extremely efficient with Lifeguards/Beach tables ($150k per lifeguard)"})
+FarmTab:CreateParagraph({ Title="Force Best Customer", Content = "This option will force the best customer for each chair like:\nBeach chair is Lifeguard, Alien Throne is Alien, [...]\nThis is extremely efficient with Alien ($936k per Alien)"})
 local ForceCustomerToggle = FarmTab:CreateToggle({
    Name = "Force Best Customer",
    CurrentValue = false,
@@ -1267,7 +1267,7 @@ FarmTab:CreateToggle({
    end
 })
 
-local SettingsSection = FarmTab:CreateSection("NPCs Options")
+local SettingsSection = FarmTab:CreateSection("NPCs Options (DON'T USE THAT THE SCRIPT WILL BREAK)")
 local TeleportNPCToggle = FarmTab:CreateToggle({
    Name = "NPC Teleport",
    CurrentValue = false,
@@ -2250,10 +2250,22 @@ end)
 -------------------------//
 --// Anti-AFK
 -------------------------//
-task.spawn(function()
-	if getconnections then
-		for i,v in next, getconnections(game.Players.LocalPlayer.Idled) do
-			v:Disable()
-		end
-	end
+local VirtualUser=game:service'VirtualUser'
+game:service'Players'.LocalPlayer.Idled:connect(function()
+VirtualUser:CaptureController()
+VirtualUser:ClickButton2(Vector2.new())
+end)
+
+warn("Anti-Afk has Loaded")
+-------------------------//
+--// CPU-SAVER
+-------------------------//
+local UserInputService, RunService = game:GetService("UserInputService"), game:GetService("RunService")
+
+UserInputService.WindowFocusReleased:Connect(function()
+	RunService:Set3dRenderingEnabled(false);
+end)
+
+UserInputService.WindowFocused:Connect(function()
+	RunService:Set3dRenderingEnabled(true);
 end)

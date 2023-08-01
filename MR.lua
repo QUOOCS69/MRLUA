@@ -2015,9 +2015,6 @@ function SendWebhook(skipError, receivedStats)
 	if not stats then WebhookTryAgain(skipError) return end
 	local statsString = ""
 	
-	if stats.ChefCatProgress then
-		statsString = statsString .. string.format("**Chef Cat Progress:** %s/100,000\n", Library.Functions.Commas(stats.ChefCatProgress))
-	end
 
 	if stats.TimeSpentInGame then
 		local timeSpentInGame = stats.TimeSpentInGame
@@ -2094,7 +2091,7 @@ function SendWebhook(skipError, receivedStats)
 		};
 		Body = HttpService:JSONEncode({
 			username = "My Restaurant!", 
-			avatar_url = 'https://i.imgur.com/C1NnpBl.jpg',
+			avatar_url = 'https://cdn.discordapp.com/attachments/897053118360064001/1132402302049853570/latest.png',
 			embeds = {embed} 
 		})
 	}

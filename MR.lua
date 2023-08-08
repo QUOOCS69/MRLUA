@@ -1267,37 +1267,6 @@ FarmTab:CreateToggle({
    end
 })
 
-local SettingsSection = FarmTab:CreateSection("NPCs Options (DON'T USE THAT THE SCRIPT WILL BREAK)")
-local TeleportNPCToggle = FarmTab:CreateToggle({
-   Name = "NPC Teleport",
-   CurrentValue = false,
-   Flag = "TeleportNPC",
-   Callback = function(Value)
-		TeleportNPC = Value
-   end
-})
-
-local FastNPCToggle = FarmTab:CreateToggle({
-   Name = "Change NPC Walkspeed",
-   CurrentValue = false,
-   Flag = "FastNPC",
-   Callback = function(Value)
-		FastNPC = Value
-   end
-})
-
-local NPCSpeedSlider = FarmTab:CreateSlider({
-   Name = "NPC Walkspeed",
-   Range = {16, 300},
-   Increment = 1,
-   Suffix = "Walkspeed",
-   CurrentValue = 100,
-   Flag = "NPCSpeed",
-   Callback = function(Value)
-		NPCSpeed = Value
-   end,
-})
-
 
 local TeleportTab = Window:CreateTab("Teleport")
 local StoreTeleportsSection = TeleportTab:CreateSection("Store")
@@ -2265,4 +2234,19 @@ end)
 
 UserInputService.WindowFocused:Connect(function()
 	RunService:Set3dRenderingEnabled(true);
+end)
+-------------------------//
+--// AUTO-REJOIN
+-------------------------//
+repeat wait() until game.CoreGui:FindFirstChild('RobloxPromptGui')
+ 
+local lp,po,ts = game:GetService('Players').LocalPlayer,game.CoreGui.RobloxPromptGui.promptOverlay,game:GetService('TeleportService')
+ 
+po.ChildAdded:connect(function(a)
+    if a.Name == 'ErrorPrompt' then
+        repeat
+            ts:Teleport(game.PlaceId)
+            wait(2)
+        until false
+    end
 end)
